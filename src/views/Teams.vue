@@ -13,7 +13,7 @@
       <v-card-title> Time A </v-card-title>
       <v-card-text>
         <v-row>
-          <v-col cols="2" v-for="item in teamA" :key="item.id">
+          <v-col cols="12" sm="6" md="3" lg="2" xl="2" v-for="item in teamA" :key="item.id">
             <player-card-fifa :player="item"></player-card-fifa>
           </v-col>
         </v-row>
@@ -23,7 +23,7 @@
       <v-card-title> Time B </v-card-title>
       <v-card-text>
         <v-row>
-          <v-col cols="2" v-for="item in teamB" :key="item.id">
+          <v-col cols="12" sm="6" md="3" lg="2" v-for="item in teamB" :key="item.id">
             <player-card-fifa :player="item"></player-card-fifa>
           </v-col>
         </v-row>
@@ -62,9 +62,14 @@ export default {
 
       this.players.forEach((player, index) => {
         if (index % 2 === 0) {
-          this.teamA.push(player);
+          setTimeout(() =>{
+            this.teamA.push(player);
+          }, index * 1000);
+          
         } else {
-          this.teamB.push(player);
+          setTimeout(() =>{
+            this.teamB.push(player);
+          }, index * 1000);
         }
       });
     },

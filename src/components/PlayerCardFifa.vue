@@ -12,7 +12,8 @@
       <div id="card-inner">
         <div id="card-top">
           <div class="info">
-            <div class="value">94</div>
+            <div class="value">{{player.value||99 }}
+            </div>
             <div class="position">st</div>
             <div class="country">
               <div></div>
@@ -22,25 +23,27 @@
             </div>
           </div>
 
-          <div class="image" >
-              <img  class="image"  :src="player.image">
-          </div>
-          <div class="backfont">FUT19</div>
+        
+          <img  class="image" :src="player.image">
+          
+          <div class="backfont"></div>
         </div>
         <div id="card-bottom">
           <div class="name">{{player.name}}</div>
           <div class="stats">
             <div>
               <ul>
-                <li><span>{{player.stats.lung}}</span><span>Pul</span></li>
-                <li><span>{{player.stats.weight}}</span><span>Pes</span></li>                
-                <li><span>{{player.stats.imc}}</span><span>Imc</span></li>
+                <li><span>{{player.stats.lung || '00' }}</span><span>Pul</span></li>
+                <li><span>{{player.stats.weight || '00'}}</span><span>Pes</span></li>                
+                <li><span>{{player.stats.imc || '00' }}</span><span>Imc</span></li>
               </ul>
             </div>
             <div>
               <ul>
                 
-                <li><span>{{player.stats.speed}}</span><span>Vel</span></li>                
+                <li><span>{{player.stats.speed || '00'}}</span><span>Vel</span></li>                
+                <li><span>{{player.stats.defense || '00'}}</span><span>DEF</span></li>                
+                <li><span>{{player.stats.age || '00'}}</span><span>IDA</span></li>                
               </ul>
             </div>
           </div>
@@ -172,7 +175,7 @@ a {
         position: absolute;
         bottom: -22px;
         line-height: 1;
-        font-size: 118px;
+        font-size: 75px;
         left: 0;
         letter-spacing: -5px;
         opacity: 0;
@@ -199,7 +202,7 @@ a {
         bottom: 0;
         z-index: 3;
         height: 75%;
-        width: 30%;
+        width: 35%;
         box-sizing: border-box;
         padding: 0 20px;
         text-align: center;
@@ -328,7 +331,7 @@ a {
           vertical-align: top;
           display: inline-block;
           text-transform: uppercase;
-          font-size: 23px;
+          font-size: 18px;
           &:last-child {
             ul {
               margin-left: 24px;
@@ -347,7 +350,7 @@ a {
             margin-bottom: 5px;
             transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
             opacity: 0;
-            left: 20px;
+            left: 10px;
             &:nth-child(2) {
               transition-delay: 2.2s;
             }
