@@ -18,11 +18,13 @@ export default {
     this.getPlayers();
   },
   methods: {
-      getPlayers(){
-          this.players = localStorage.getItem("players") ? JSON.parse(localStorage.getItem("players")) : [];
-      },
-    addPlayer(player) {
-        console.log(player)
+    getPlayers() {
+      this.players = localStorage.getItem("players")
+        ? JSON.parse(localStorage.getItem("players"))
+        : [];
+    },
+    addPlayer(player) {      
+      console.log(player);
       this.players.push(player);
       localStorage.setItem("players", JSON.stringify(this.players));
     },

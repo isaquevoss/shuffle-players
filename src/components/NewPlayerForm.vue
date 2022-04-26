@@ -30,15 +30,15 @@
           ></v-text-field>
           <v-text-field
             required
-            v-model="player.stats.def"
+            v-model="player.stats.defense"
             label="Defesa"
           ></v-text-field>
 
-          <v-text-field
-            required
-            v-model="player.image"
-            label="Imagem"
-          ></v-text-field>
+          <v-file-input
+            truncate-length="15"
+            accept="image/*"
+            v-model="image"
+          ></v-file-input>
           <v-btn type="submit">Salvar</v-btn>
         </v-container>
       </v-form>
@@ -46,10 +46,14 @@
   </v-container>
 </template>
 <script>
+import { uploadFile } from "../services/storage";
+import {v4 as uuidv4} from "uuid";
 export default {
   data() {
     return {
+      image: null,
       player: {
+        id: uuidv4(),
         name: "",
         stats: {
           age: 0,
@@ -65,9 +69,28 @@ export default {
 
   methods: {
     submit() {
+      console.log(this.image);
+      const image = uploadFile(
+        this.image,
+        this.player.id + "." + this.image.name.split(".").pop()
+      );
+      this.player.image = image.getDownloadUrl();
+      console.log(image);
       const player = this.player;
       this.$emit("add-player", player);
-      this.player = {};
+      this.player = {
+        id: uuidv4(),
+        name: "",
+        stats: {
+          age: 0,
+          weight: 0,
+          lung: 0,
+          speed: 0,
+          def: 0,
+        },
+        image: "",
+      };
+      this.image = null;
     },
   },
 };
