@@ -68,13 +68,13 @@ export default {
   },
 
   methods: {
-    submit() {
+    async submit() {
       console.log(this.image);
-      const image = uploadFile(
+      const image = await uploadFile(
         this.image,
         this.player.id + "." + this.image.name.split(".").pop()
       );
-      this.player.image = image.getDownloadUrl();
+      this.player.image = image;
       console.log(image);
       const player = this.player;
       this.$emit("add-player", player);
