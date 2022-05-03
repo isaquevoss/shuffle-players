@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-card>
-      <v-form v-if="player" @submit.prevent="submit">
+      <v-form v-if="player.stats" @submit.prevent="submit">
         <v-container>
           <v-text-field
             v-model="player.name"
@@ -47,12 +47,17 @@
 </template>
 <script>
 import { uploadFile } from "../services/storage";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 export default {
+  props: {
+    player: {
+      stats: {}
+    }
+  },
   data() {
     return {
       image: null,
-      player: {
+      player1: {
         id: uuidv4(),
         name: "",
         stats: {
