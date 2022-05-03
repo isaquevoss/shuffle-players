@@ -1,12 +1,11 @@
 <template>
-  <v-container>
-    <v-card>
+  
       <v-container>
         <v-row>
-          <v-col cols="2" v-for="item in players" :key="item.id">
+          <v-col cols="4" v-for="item in players" :key="item.id">
             <v-card>
               <v-card-title>
-                <v-checkbox v-model="item.selected"></v-checkbox>
+                <v-checkbox label="goleiro" v-model="item.goalkeeper"></v-checkbox>
                  <v-spacer></v-spacer>
                 <v-btn icon @click="$emit('edit', item)">
                   <v-icon>mdi-pencil</v-icon>
@@ -21,8 +20,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-card>
-  </v-container>
+    
 </template>
 <script>
 import PlayerCardFifa from "./PlayerCardFifa.vue";
