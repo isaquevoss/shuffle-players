@@ -43,6 +43,7 @@ export default {
     addPlayer(player) {      
       console.log(player);
       this.players.push(player);
+      this.player = {}
       localStorage.setItem("players", JSON.stringify(this.players));
     },
   },

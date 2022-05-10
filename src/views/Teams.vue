@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-btn @click="ramdomize">Sortear</v-btn>
-    <v-card>
-      
+    <v-card>      
       <v-card-title> Time A </v-card-title>
       <v-card-text>
         <v-row>
@@ -86,11 +85,11 @@ export default {
         if (index % 2 === 0) {
           setTimeout(() => {
             this.teamA.push(player);
-          }, index * 1000);
+          },  (index + 2) * 1000);
         } else {
           setTimeout(() => {
             this.teamB.push(player);
-          }, index * 1000);
+          }, (index + 2) * 1000);
         }
       });
     },
