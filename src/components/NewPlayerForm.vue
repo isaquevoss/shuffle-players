@@ -4,33 +4,33 @@
       <v-form v-if="player.stats" @submit.prevent="submit">
         <v-container>
           <v-text-field
-            v-model="player.name"
+            v-model="player1.name"
             required
             label="Nome"
           ></v-text-field>
           <v-text-field
-            v-model="player.stats.age"
+            v-model="player1.stats.age"
             required
             label="Idade"
           ></v-text-field>
           <v-text-field
             required
-            v-model="player.stats.weight"
+            v-model="player1.stats.weight"
             label="Peso"
           ></v-text-field>
           <v-text-field
             required
-            v-model="player.stats.lung"
+            v-model="player1.stats.lung"
             label="Pulmao"
           ></v-text-field>
           <v-text-field
             required
-            v-model="player.stats.speed"
+            v-model="player1.stats.speed"
             label="Velocidade"
           ></v-text-field>
           <v-text-field
             required
-            v-model="player.stats.defense"
+            v-model="player1.stats.defense"
             label="Defesa"
           ></v-text-field>
 
@@ -79,11 +79,11 @@ export default {
         this.image,
         this.player.id + "." + this.image.name.split(".").pop()
       );
-      this.player.image = image;
+      this.player1.image = image;
       console.log(image);
-      const player = this.player;
+      const player = this.player1;
       this.$emit("add-player", player);
-      this.player = {
+      this.player1 = {
         id: uuidv4(),
         name: "",
         stats: {
