@@ -77,7 +77,7 @@ export default {
       console.log(this.image);
       const image = await uploadFile(
         this.image,
-        this.player.id + "." + this.image.name.split(".").pop()
+        this.player1.id + "." + this.image.name.split(".").pop()
       );
       this.player1.image = image;
       console.log(image);
